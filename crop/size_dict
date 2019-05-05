@@ -1,0 +1,13 @@
+{(120, 100): {'CHI_GU'},
+ (128, 128): {'1_JIN_ZHI_GU',
+  '1_YUAN_ZHI_GU',
+  '3_JIN_ZHI_GU',
+  '3_YUAN_ZHI_GU',
+  '3_ZHONG_ZHI_GU',
+  '5_JIN_ZHI_GU',
+  '5_YUAN_ZHI_GU',
+  '5_ZHONG_ZHI_GU',
+  'ZHANG_3_GU',
+  'ZHANG_5_GU',
+  'ZI_GU'},
+ (128, 160): {'RAO_GU', 'WAN_GU', 'ZHANG_1_GU'}}
