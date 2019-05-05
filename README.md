@@ -1,30 +1,30 @@
-# bone-age_python_e2e
+# Bone-age-algorithm
 
-本代码分支是论文《_Diagnostic Performance of Convolutional Neural Network-Based TW3 Bone Age Assessment system_》中的实现代码。
+This repository contains the code used for the paper- Diagnostic Performance of Convolutional Neural Network-Based TW3 Bone Age Assessment system.
 
-代码主要包含以下模块：
-* 预处理模块
-* X光图片关键点检测模块，包含训练及预测
-* 骨骺ROI截取模块
-* 骨骺ROI分级模块，包含训练及预测
-* 骨龄值计算模块
+The code mainly contains the following modules:
+* Pre-processing module
+* Detection module for key points of an X-ray image, including training and prediction
+* Cropping module for epiphysis ROIs 
+* Classifying module for epiphysis ROIs, including training and prediction
+* Bone age calculation module
 
-## 依赖项
-运行环境主要包含的程序和第三方库有：
-* 运行环境：
+## Dependencies
+The main programs and third-party libraries included in the operating environment:
+* Operating environment：
     * Python 3.7.3
     * anaconda3-4.3.14
-* 第三方库：
+* Third-party libraries：
     * image 1.5.27
     * Keras 2.2.4
     * opencv 4.1.0.25
     * tensorflow 1.13.1
     * tqdm 4.31.1
 
-## 使用方式
-将数据按一定格式存放到数据目录后，依次运行脚本。
+## How to use it?
+Run the script in turn after the data is stored in the data directory in a certain format.
 
-其中配置文件为config.json，相关文件的索引路径可通过修改此文件而修改。
+The configuration file is named as config.json, and the index path of the related files can be modified by modifying this file.
 
 ### 数据存放方式
 
