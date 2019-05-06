@@ -4,17 +4,17 @@ This repository contains the code used for the paper- Diagnostic Performance of 
 
 The code mainly contains the following modules:
 * Pre-processing module
-* Detection module for key points of an X-ray image, including training and prediction
+* Positioning module for key points detection of an X-ray image, including training and prediction
 * Cropping module for epiphysis ROIs 
 * Classifying module for epiphysis ROIs, including training and prediction
-* Bone age calculation module
+* Bone age calculating module
 
 ## Dependencies
 The main programs and third-party libraries included in the operating environment:
-* Operating environment：
+* Operating environment:
     * Python 3.7.3
     * anaconda3-4.3.14
-* Third-party libraries：
+* Third-party libraries:
     * image 1.5.27
     * Keras 2.2.4
     * opencv 4.1.0.25
@@ -26,79 +26,79 @@ Run the script in turn after the data is stored in the data directory in a certa
 
 The configuration file is named as config.json, and the index path of the related files can be modified by modifying this file.
 
-### 数据存放方式
+### Data storage 
 
-#### 输入图片目录
+#### Input image directory
 
-输入图片放置的目录,放置位置为：config.json -> input_img_dir
+Input the directory where the image is placed, and the placement location is：config.json -> input_img_dir
 
-#### 输入列表
+#### Input name list
 
-输入的图片的文件名的列表,放置位置为：config.json -> annos -> img_name_csv
+Input the name list of the image, and the placement location is：config.json -> annos -> img_name_csv
 
-表格的形式为：
+As the following format:
 
 | img_name |
 | :--- : |
-| 文件名1 |
-| 文件名2 |
+| file name 1 |
+| file name 2 |
 | ...... |
 
-#### 输入图片性别列表
+#### Input gender list
 
-输入的图片，对应儿童的性别映射表,放置位置为：config.json -> annos -> gender_csv
+Input the children's gender mapping table corresponding to the input images, and the placement location is: config.json -> annos -> gender_csv
 
-表格的形式为：
+As the following format:
 
 | img_name | gender |
 | :---: | :---:|
-| 文件名1 | 性别1（M为男，F为女）|
-| 文件名2 | 性别2 |
+| file name 1 | gender 1（M for male and F for female）|
+| file name 2 | gender 2 |
 | ...... | ...... |
 
-#### 训练数据骨骺分级表
+#### Epiphysis classifying table
 
-训练时，训练数据中图片各个TW3标准所需骨骺的分级表。放置位置为：config.json -> annos -> bone_label_csv
+This is the epiphysis classifying table corresponding to TW3-method for the training dataset, and the placement location is: config.json -> annos -> bone_label_csv
 
-表格的形式为：
+As the following format:
 
 | img_name | bone_name | label |
 | :---: | :---: | :---: |
-| 图片文件名1 | 骨骺编号A | 图片1上骨骺A对应的分数 |
-| 图片文件名1 | 骨骺编号B | 图片1上骨骺B对应的分数 |
+| image name 1 | epiphysis A | score of epiphysis A|
+| image name 1 | epiphysis B | score of epiphysis B |
 | ...... | ...... | ...... |
 
-其中，分数为数字形式，对应为0-A, 1-B,...
+The score is in the form of a number, such as 0-A, 1-B...
 
-#### 关键标注查找表
+#### Key annotation lookup table
 
-训练时，训练数据中图片关键点标注文件定位表。放置位置为：config.json -> annos -> align_point_json_csv
+This is the key points annotation positioning table for the training dataset, and the placement location is: config.json -> annos -> align_point_json_csv
 
-表格的形式为：
+As the following format:
 
 | img_name | json_path |
 | :---: | :---: |
-| 图片文件名1 | 对应关键点json路径1 |
-| 图片文件名2 | 对应关键点json路径2 |
+| image name 1 | json path 1 |
+| image name 2 | json path 2 |
 | ...... | ...... |
 
 
-#### 关键点编号列表
+#### Key points numbering list
 
-关键点编号名，同　crop/point_align　即可。
+Key points numbering name can be same as ‘./crop/point_align’.
 
-### 脚本运行顺序
+### Script running sequence
 
-数据放置完毕且依赖安装完毕后，按顺序运行脚本即可：
+After the data is properly placed and the dependencies installation is complete, run the script in order：
 
-- 准备环境： python 1a_build_wksp.py
-- 定位模块：
-    - 训练定位模块： python 2a_alignment_train.py
-    - 使用定位模块生成定位结果： python 2b_alignment_infer.py
-- 根据定位结果截取ROI： python 3a_crop_roi.py
-- 分级模块：
-    - 训练分级模块： python 4a_cls_train.py
-    - 使用分级模块生成分级结果： python 4b_cls_infer.py
-- 根据分级结果和性别信息，计算骨龄值： python 5a_calc_bone_age.py
+- Prepare operating environment: python 1a_build_wksp.py
+- Positioning module：
+    - Train the module: python 2a_alignment_train.py
+    - Use the module to get positioning results: python 2b_alignment_infer.py
+- Crop ROIs based on positioning results： python 3a_crop_roi.py
+- Classifying module：
+    - Train the module： python 4a_cls_train.py
+    - Use the module to get classifying results: python 4b_cls_infer.py
+- Calculate bone age values based on classifying results and gender information： python 5a_calc_bone_age.py
 
-其中，common文件夹内包含一些公有代码，crop文件夹内包含一些crop用的代码
+It should be noted that, the folder named 'common' contains some public code and the folder named 'crop' contains some code for cropping purpose. 
