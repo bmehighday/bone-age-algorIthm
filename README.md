@@ -28,11 +28,11 @@ The configuration file is named as config.json, and the index path of the relate
 
 ### Data storage 
 
-#### Input image directory
+* Input image directory
 
 Input the directory where the image is placed, and the placement location is：config.json -> input_img_dir
 
-#### Input name list
+* Input name list
 
 Input the name list of the image, and the placement location is：config.json -> annos -> img_name_csv
 
@@ -44,7 +44,7 @@ As the following format:
 | file name 2 |
 | ...... |
 
-#### Input gender list
+* Input gender list
 
 Input the children's gender mapping table corresponding to the input images, and the placement location is: config.json -> annos -> gender_csv
 
@@ -56,7 +56,7 @@ As the following format:
 | file name 2 | gender 2 |
 | ...... | ...... |
 
-#### Epiphysis classifying table
+* Epiphysis classifying table
 
 This is the epiphysis classifying table corresponding to TW3-method for the training dataset, and the placement location is: config.json -> annos -> bone_label_csv
 
@@ -70,7 +70,7 @@ As the following format:
 
 The score is in the form of a number, such as 0-A, 1-B...
 
-#### Key annotation lookup table
+* Key annotation lookup table
 
 This is the key points annotation positioning table for the training dataset, and the placement location is: config.json -> annos -> align_point_json_csv
 
@@ -83,7 +83,7 @@ As the following format:
 | ...... | ...... |
 
 
-#### Key points numbering list
+* Key points numbering list
 
 Key points numbering name can be same as ‘./crop/point_align’.
 
