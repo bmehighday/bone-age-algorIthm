@@ -85,7 +85,7 @@ As the following format:
 
 * Key points numbering list
 
-Key points numbering name can be same as ‘./crop/point_align’.
+Key points numbering name can be same as './crop/point_align'.
 
 ### Script running sequence
 
